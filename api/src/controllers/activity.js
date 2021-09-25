@@ -7,7 +7,7 @@ async function activityCreate(req, res, next){
 
     try {
 
-        let id = uuidv4;
+        let id = uuidv4();
         let newActivity = await Activity.create({
             name,
             difficulty, 
