@@ -11,7 +11,7 @@ async function getCountriesApi (req, res, next){
         
         let checkDb = await Country.findAll();
         if(checkDb.length > 0) {
-            return res.send(checkDb);
+            return checkDb;
         } else {
             const getApi = await axios.get('https://restcountries.com/v2/all');
             const getAllApi = getApi.data.map( e => { 
@@ -27,65 +27,75 @@ async function getCountriesApi (req, res, next){
             }
         })
             const countriesDb = await Country.bulkCreate(getAllApi);
-            return res.send(countriesDb);
+            return countriesDb;
         }
         
         
     } catch (error) {
-        next(error);
+        console.log(error);
     }
 }
 
-router.get('/', getCountriesApi, async (req, res, next)=> {
+async function getCountries(req, res, next){
 
+    await getCountriesApi();
+    
     const { name } = req.query;
     console.log("name de query", name)
+    
     try {
         if(name){
             console.log("dentro del IF con name ", name)
             const countries = await Country.findAll({
+
+                attributes: [
+                    "id", 
+                    "name", 
+                    "flag", 
+                    "region", 
+                    "area",
+                    "subregion",
+                    "poblation"
+                ],
+                include: Activity,
                 where:{
                     name: {
                         [Op.iLike] : `%${name}%`
                     }
                 },
-                attributes: [
-                    "name",
-                    "id",
-                    "flag",
-                    "capital",
-                    "region",
-                    "subregion",
-                    "area",
-                    "poblation"
-                ],
-                include: Activity
             })
-            return countries.length ? res.json(countries) : res.send("Country not found");
+            if(countries.length ){
+                return res.json(countries) 
+            } else {
+                return res.status(400).send("Country not found")
+            }
         } 
         else {
             const countries = await Country.findAll({
                 attributes: [
-                    "name",
-                    "id",
-                    "flag",
-                    "capital",
-                    "region",
-                    "subregion",
+                    "id", 
+                    "name", 
+                    "flag", 
+                    "region", 
                     "area",
-                    "poblation"
-                ],
-                include: Activity 
+                    "subregion",
+                    "poblation"],
+                include: Activity
             })
             // console.log("paso por countries Country FindAll", countries);
             return res.send(countries)
         }
         
     } catch (error) {
+        next(error);
         console.log("error get countries", error)
     }
-})
+}
 
 
 
-module.exports = router;
+
+
+module.exports = {
+    getCountries     
+};
