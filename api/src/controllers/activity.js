@@ -1,5 +1,5 @@
 const { Activity, Country} = require('../db');
-const { v4: uuidv4 } = require('uuid');
+// const { v4: uuidv4 } = require('uuid');
 
 async function activityCreate(req, res, next){
 
@@ -7,15 +7,14 @@ async function activityCreate(req, res, next){
 
     try {
 
-        let id = uuidv4();
+        // let id = uuidv4();
         let newActivity = await Activity.create({
             name,
             difficulty, 
             duration,
-            season,
-            id
+            season
         })
-        const country = Country.findOne({
+        const country = await Country.findOne({
             where:{
                 id :countryId
             }

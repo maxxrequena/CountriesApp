@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const axios = require('axios');
-const { Country, Activity, Activity_Country } = require('../db');
+const { Country, Activity, Country_Activity } = require('../db');
 const { Op } = require('sequelize');
 
 const router = Router();
@@ -95,16 +95,19 @@ async function getCountries(req, res, next){
 }
 
 async function getCountryById (req, res, next){
-
-    const { id } = req.params;
+    
+    await getCountriesApi();
+    
+    let { id } = req.params;
     id = id.toLocaleUpperCase();
+    
     let activityForId = [];
     let detailActivity = [];
     let countryActivity = {};
 
     try {
         let country = await Country.findByPk(id, {include:{model: Activity}})
-        let activities = await Activity_Country.findAll({where:{countryId: id}})
+        let activities = await Country_Activity.findAll({where:{countryId: id}})
 
         for (let i = 0; i < activities.length; i++) {
             activityForId.push(activities[i].dataValues.activityId)
