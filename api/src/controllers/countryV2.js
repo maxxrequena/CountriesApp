@@ -13,18 +13,17 @@ async function getCountriesApi (){
         if(checkDb.length > 0) {
             return checkDb;
         } else {
-            const getApi = await axios.get('https://restcountries.com/v3/all');
+            const getApi = await axios.get('https://restcountries.com/v2/all');
             const getAllApi = getApi.data.map( e => { 
-            return {
-                
-                id: e.cca3 ? e.cca3 : e.cioc,
-                name: e.name.common,
-                flag: e.flag || e.flags[0],
-                region: e.region,
-                capital: e.capital && e.capital[0] || "Capital Default",
-                subregion: e.subregion || "Region Default",
-                area: e.area || "Area Default",
-                
+            return{
+                id: e.alpha3Code ? e.alpha3Code : "Id",
+                name: e.name ? e.name : e.demonym,
+                flag: e.flags[0] ? e.flags[0] : e.flags[1],
+                region: e.continent ? e.continent : "Continent",
+                capital: e.capital ? e.capital : "Capital",
+                subregion: e.region ? e.region : "Region",
+                area: e.area ? e.area : "Area",
+                poblation: e.population ? e.population : 0
             }
         })
             const countriesDb = await Country.bulkCreate(getAllApi);
@@ -42,21 +41,21 @@ async function getCountries(req, res, next){
     await getCountriesApi();
     
     const { name } = req.query;
-    // console.log("name de query", name)
+    console.log("name de query", name)
     
     try {
         if(name){
-            // console.log("dentro del IF con name ", name)
+            console.log("dentro del IF con name ", name)
             const countries = await Country.findAll({
 
                 attributes: [
                     "id", 
                     "name", 
-                    "flag",
-                    "capital", 
+                    "flag", 
                     "region", 
                     "area",
                     "subregion",
+                    "poblation"
                 ],
                 include: Activity,
                 where:{
@@ -76,15 +75,14 @@ async function getCountries(req, res, next){
                 attributes: [
                     "id", 
                     "name", 
-                    "flag",
-                    "capital", 
+                    "flag", 
                     "region", 
                     "area",
                     "subregion",
-                ],
+                    "poblation"],
                 include: Activity
             })
-            // console.log("paso por countries Country FindAll", countries);
+            console.log("paso por countries Country FindAll", countries);
             return res.send(countries)
         }
         
