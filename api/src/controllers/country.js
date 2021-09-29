@@ -41,13 +41,14 @@ async function getCountries(req, res, next){
 
     await getCountriesApi();
     
-    const { name } = req.query;
     // console.log("name de query", name)
-    
     try {
+        
+        let { name, page } = req.query;
+        
         if(name){
             // console.log("dentro del IF con name ", name)
-            const countries = await Country.findAll({
+            const country = await Country.findAll({
 
                 attributes: [
                     "id", 
@@ -65,13 +66,8 @@ async function getCountries(req, res, next){
                     }
                 },
             })
-            if(countries.length ){
-                return res.json(countries) 
-            } else {
-                return res.status(400).send("Country not found")
-            }
-        } 
-        else {
+            return country.length ? res.json(country) : res.status(400).send("Country not found")
+        } else {
             const countries = await Country.findAll({
                 attributes: [
                     "id", 
@@ -84,8 +80,7 @@ async function getCountries(req, res, next){
                 ],
                 include: Activity
             })
-            // console.log("paso por countries Country FindAll", countries);
-            return res.send(countries)
+            return res.sed(countries);
         }
         
     } catch (error) {
@@ -123,9 +118,60 @@ async function getCountryById (req, res, next){
     }
 }
 
+async function filtersCountries(req, res, next){
+
+    const { order, area } = req.query;
+
+    try {
+        if(order){
+            let countOrder = await Country.findAll({
+                attributes: [
+                    "id", 
+                    "name", 
+                    "flag",
+                    "capital", 
+                    "region", 
+                    "area",
+                    "subregion",
+                ],
+                include: Activity
+            })
+            if(order === "asc" || !order || order === ""){
+                countOrder = countOrder.sort((a, b) => {
+                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                })
+            }else {
+                countOrder = countOrder.sort((a, b) => {
+                    return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+                })
+            }
+            return res.send(countOrder);
+        }
+        if(area){
+
+            const countries = await Country.findAll({
+                attributes: [
+                    "id", 
+                    "name", 
+                    "flag",
+                    "capital", 
+                    "region", 
+                    "area",
+                    "subregion",
+                ],
+                include: Activity
+            })
+            
+        }
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 
 module.exports = {
     getCountries,
-    getCountryById     
+    getCountryById,
+    filtersCountries     
 };
