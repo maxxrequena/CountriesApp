@@ -1,11 +1,15 @@
 .body{
-    background: black;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* background: url('../Landing/maplanding1.jpeg'); */
+    background-color: #000000;
+    /* background-image: linear-gradient(147deg, #000000 0%, #302e2e 89%); */
+    /* background-size: cover;
+    background-repeat: no-repeat; */
     position: absolute;
+    /* opacity: 0.7; */
     width: 100%;
     height: 100vh;
+    overflow-x: hidden;
+    
 }
-.h1{
-    color: white;
-}
+
+

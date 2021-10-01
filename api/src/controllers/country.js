@@ -19,8 +19,8 @@ async function getCountriesApi (){
                 
                 id: e.cca3 ? e.cca3 : e.cioc,
                 name: e.name.common,
-                flag: e.flag || e.flags[0],
-                region: e.region,
+                flag: e.flags[0] && e.flags[1] || e.flag ,
+                continent: e.region,
                 capital: e.capital && e.capital[0] || "Capital Default",
                 subregion: e.subregion || "Region Default",
                 area: e.area || "Area Default",
@@ -55,7 +55,7 @@ async function getCountries(req, res, next){
                     "name", 
                     "flag",
                     "capital", 
-                    "region", 
+                    "continent", 
                     "area",
                     "subregion",
                 ],
@@ -74,13 +74,13 @@ async function getCountries(req, res, next){
                     "name", 
                     "flag",
                     "capital", 
-                    "region", 
+                    "continent", 
                     "area",
                     "subregion",
                 ],
                 include: Activity
             })
-            return res.sed(countries);
+            return res.send(countries);
         }
         
     } catch (error) {
@@ -130,11 +130,11 @@ async function filtersCountries(req, res, next){
                     "name", 
                     "flag",
                     "capital", 
-                    "region", 
+                    "continent", 
                     "area",
                     "subregion",
                 ],
-                include: Activity
+                include: Activity //pensar en traer el id correspondiente
             })
             if(order === "asc" || !order || order === ""){
                 countOrder = countOrder.sort((a, b) => {

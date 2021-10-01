@@ -29,7 +29,7 @@
     border-radius: 50px;
     -webkit-transition: all .15s ease-in-out;
     width: 190px;
-    transition: all .15s ease-in-out;
+    transition: all .35s ease-in-out;
 }
 
 .btn:hover {

@@ -9,6 +9,7 @@ function NavBar () {
                 <a href="/home"> Home </a>
                 <a href="/activity"> Create Activity </a>
                 <a href=" "> Filters </a>
+                <a href="/"> Reset Filter</a>
             </ul>
             <ul className={style.nav_links}>
                 
