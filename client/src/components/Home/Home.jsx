@@ -55,7 +55,6 @@ function Home () {
             }) :(<img src={gif} alt=" "></img>) 
           }
         </div>
-        <Card/>
       </div>       
   )
     
