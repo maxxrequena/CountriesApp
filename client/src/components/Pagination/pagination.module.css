@@ -1,21 +1,23 @@
-.ul {
+/* .ul {
     list-style-type: none;
-}
+} */
 
 .list {
     display: inline-block;
 }
 .btn {
     font-family: 'Stick No Bills', sans-serif;
+    display: inline-block;
     color: white;
     background-color: #f1f1f15e;
     margin-top: 5px;
-    margin-left: 6px;
+    margin-left: 11px;
     border: none;
     font-size: 15px;
     padding: 5px 10px;
     border-radius: 5px;
     opacity: 0.8;
+    
 }
 
 .btn:hover {
@@ -23,6 +25,3 @@
     background-color: rgb(156, 154, 152);
 }
 
-/* .btn:focus {
-    background-color: burlywood;
-} */

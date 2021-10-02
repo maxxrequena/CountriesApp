@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap');
 .body{
+    font-family: 'Stick No Bills', sans-serif;
     /* background: url('../Landing/maplanding1.jpeg'); */
     background-color: #000000;
-    /* background-image: linear-gradient(147deg, #000000 0%, #302e2e 89%); */
-    /* background-size: cover;
-    background-repeat: no-repeat; */
     position: absolute;
-    /* opacity: 0.7; */
     width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-    
+    overflow: hidden;
+  
 }
 
+.cards{
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 45px;
+}
