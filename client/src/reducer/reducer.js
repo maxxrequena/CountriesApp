@@ -1,10 +1,18 @@
-import { GET_ALL_COUNTRIES, GET_NAME_COUNTRY, FILTER_CONTINENT} from '../actions/actions.js'
+import { 
+    GET_ALL_COUNTRIES, 
+    GET_FILTER_COUNTRY, 
+    FILTER_CONTINENT,
+    SET_ORDER,
+    SET_AREA
+} from '../actions/actions.js'
 
 const initialState = {
     allCountries: [],
     allCountry: [],
     detailCountry: {},
-    allActivities: []
+    allActivities: [],
+    order:"",
+    area:""
 }
 
 function rootReducer(state = initialState, action){
@@ -17,7 +25,7 @@ function rootReducer(state = initialState, action){
                 allCountry: action.payload
             }
         }
-        case GET_NAME_COUNTRY: {
+        case GET_FILTER_COUNTRY: {
             return {
                 ...state,
                 allCountry: action.payload
@@ -35,6 +43,17 @@ function rootReducer(state = initialState, action){
                 ...state,
                 allCountry: filterContinent
             }
+        case SET_ORDER :
+            return {
+                ...state,
+                order: action.payload
+            }
+        case SET_AREA:
+            return{
+                ...state,
+                area : action.payload
+            }    
+              
         default : return state
     }
 }

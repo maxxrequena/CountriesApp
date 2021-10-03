@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import style from '../Home/home.module.css'
 import NavBar from '../NavBar/NavBar';
 import Card from '../Card/Card.jsx'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getCountries } from '../../actions/actions.js'
+import { getCountries, getFilterCountry } from '../../actions/actions.js'
 import Pagination from '../Pagination/Pagination.jsx'
 import gif from '../Home/globeGid.gif'
 
@@ -14,6 +15,7 @@ function Home () {
 
   const dispatch = useDispatch();
   const allCountries = useSelector(state => state.allCountry)
+  // const {order, area } = useSelector(state => state.allCountry)
   // console.log("allcountries HOME", allCountries)
    
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,6 +30,7 @@ function Home () {
 
   useEffect(() => {
     dispatch(getCountries());
+    dispatch(getFilterCountry({}))
   },[dispatch])
 
 //   function handleClick(e) {

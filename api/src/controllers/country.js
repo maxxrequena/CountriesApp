@@ -64,11 +64,12 @@ async function getCountries(req, res, next){
                     name: {
                         [Op.iLike] : `%${name}%`
                     }
-                },
+                }
             })
             return country.length ? res.json(country) : res.status(400).send("Country not found")
-        }else if(order){
-            
+        } 
+        if(order){
+            console.log("ENTRASTE AL ORDER", order)
             const country = await Country.findAll({
 
                 attributes: [
@@ -82,18 +83,25 @@ async function getCountries(req, res, next){
                 ],
                 include: Activity,
             })
+            
             if(order === "Asc" || !order || order === ""){
-                country = country.sort((a,b) =>{
-                    let result = a.name.toLowerCase().localeCompare(b.name.toLowerCase()) 
-                    return res
+                countryOrder = country.sort((a,b) =>{
+                    if(a.name > b.name) return 1;
+                    if(b.name > a.name) return -1; 
+                    return 0; 
                 })
-            } else {
-                country = country.sort((a,b) =>{
-                    let result = a.name.toLowerCase().localeCompare(a.name.toLowerCase()) 
-                    return res.send(result)
+                return res.send(countryOrder)
+            } 
+            if(order === "Desc" || !order || order === ""){
+                countryOrder = country.sort((a,b) =>{
+                    if(a.name > b.name) return -1;
+                    if(b.name > a.name) return 1; 
+                    return 0;
                 })
+                return res.send(countryOrder)
             }
-        } else if(area){
+        }
+        if(area){
 
             const country = await Country.findAll({
 
@@ -111,23 +119,15 @@ async function getCountries(req, res, next){
             let sortArea;
             if(area === "Asc" || !area || area ===""){
                 sortArea = function(a,b) {
-                    if(a.continent > b.continent){
-                        return 1;
-                    } else if (a.continent < b.continent){ 
-                        return -1;
-                    } else{
-                        return 0;    
-                    }     
+                    if(a.area > b.area) return 1;
+                    if (a.area < b.area)return -1;
+                    return 0;    
                 }
             } else {
                 sortArea = function(a,b) {
-                    if(a.continent > b.continent){
-                        return -1;
-                    } else if (a.continent < b.continent){ 
-                        return 1;
-                    } else{
-                        return 0;    
-                    }     
+                    if(a.area > b.area) return -1;
+                    if (a.area < b.area)return 1;
+                    return 0;    
                 }
             }
             return res.send(country.sort(sortArea));

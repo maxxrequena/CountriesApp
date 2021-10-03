@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {getNameCountry} from '../../actions/actions.js'
+import {getFilterCountry} from '../../actions/actions.js'
 import style from '../Search/search.module.css'
 
 function Search(){
 
     const dispatch = useDispatch();
     const [name, setName] = useState(" ");
+    // const {area, order} = useSelector(state => state.allCountry)
 
     function handleChange(e){
         e.preventDefault();
@@ -15,7 +16,7 @@ function Search(){
     
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(getNameCountry(name))
+        dispatch(getFilterCountry({name}))
     }
 
     return(

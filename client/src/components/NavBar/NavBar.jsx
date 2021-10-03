@@ -2,6 +2,8 @@ import React from 'react';
 import style from '../NavBar/navbar.module.css';
 import Search from '../Search/Search.jsx'
 import GetContinent from '../Filters/getContinent.jsx'
+import SetOrderCountry from '../Filters/setOrderCountry'
+import SetArea from '../Filters/setArea.jsx'
 
 
 function NavBar () {
@@ -13,6 +15,8 @@ function NavBar () {
                 <a href="/activity"> Create Activity </a>
                 <a href="/home"> Reset Filter</a>
                 <GetContinent/>
+                <SetOrderCountry/>
+                <SetArea/>
             </ul>
                 <Search/>
             {/* <select className={style.nav_links}>   

@@ -9,7 +9,7 @@ function GetContinent(){
     
     useEffect(() => {
         dispatch(getCountries());
-      },[dispatch])
+    },[dispatch])
     
     function handleFilterContinent(e){
         dispatch(filterContinent(e.target.value))
