@@ -3,28 +3,28 @@ const { Activity, Country} = require('../db');
 
 async function activityCreate(req, res, next){
 
-    const { name, difficulty, duration, season, countryId} = req.body; 
-
+    const { name, difficulty, duration, season, idCountry} = req.body; 
+    console.log("ID BACK", idCountry);
     try {
 
         // let id = uuidv4();
         let newActivity = await Activity.create({
-            name,
-            difficulty, 
+            name, 
+            difficulty,
             duration,
             season
         })
         const country = await Country.findOne({
             where:{
-                id :countryId
+                id :idCountry
             }
         })
-        newActivity.addCountry(country)
+        await newActivity.addCountry(country)
         res.json(newActivity);
         
     } catch (error) {
         next(error);
-        console.log("newActivityError")
+        console.log("activityCreateError")
     }
 }
 

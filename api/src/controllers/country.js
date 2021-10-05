@@ -15,18 +15,18 @@ async function getCountriesApi (){
         } else {
             const getApi = await axios.get('https://restcountries.com/v3/all');
             const getAllApi = getApi.data.map( e => { 
-            return {
                 
-                id: e.cca3 ? e.cca3 : e.cioc,
-                name: e.name.common,
-                flag: e.flags[0] && e.flags[1] || e.flag ,
-                continent: e.region,
-                capital: e.capital && e.capital[0] || "Capital Default",
-                subregion: e.subregion || "Region Default",
-                area: e.area || "Area Default",
+                return {
                 
-            }
-        })
+                    id: e.cca3 ? e.cca3 : e.cioc,
+                    name: e.name.common,
+                    flag: e.flags[0] && e.flags[1] || e.flag ,
+                    continent: e.region,
+                    capital: e.capital && e.capital[0] || "Capital Default",
+                    subregion: e.subregion || "Region Default",
+                    area: e.area || "Area Default",
+                }
+            })
             const countriesDb = await Country.bulkCreate(getAllApi);
             return countriesDb;
         }
@@ -69,7 +69,7 @@ async function getCountries(req, res, next){
             return country.length ? res.json(country) : res.status(400).send("Country not found")
         } 
         if(order){
-            console.log("ENTRASTE AL ORDER", order)
+            
             const country = await Country.findAll({
 
                 attributes: [
@@ -157,6 +157,7 @@ async function getCountryById (req, res, next){
     await getCountriesApi();
     
     let { id } = req.params;
+    
     id = id.toLocaleUpperCase();
     
     let activityForId = [];

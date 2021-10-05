@@ -3,7 +3,10 @@ import {
     GET_FILTER_COUNTRY, 
     FILTER_CONTINENT,
     SET_ORDER,
-    SET_AREA
+    SET_AREA,
+    GET_DETAIL,
+    GET_ALL_ACTIVITIES,
+    CREATE_ACTIVITY
 } from '../actions/actions.js'
 
 const initialState = {
@@ -53,7 +56,20 @@ function rootReducer(state = initialState, action){
                 ...state,
                 area : action.payload
             }    
-              
+        case GET_DETAIL:
+            return{
+                ...state,
+                detailCountry: action.payload
+            }
+        case GET_ALL_ACTIVITIES:
+            return{
+                ...state,
+                allActivities: action.payload
+            }
+        case CREATE_ACTIVITY:
+            return{
+                ...state,
+            }               
         default : return state
     }
 }

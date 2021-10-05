@@ -6,6 +6,7 @@
     position: absolute;
     width: 100%;
     overflow: hidden;
+    
   
 }
 
@@ -13,4 +14,9 @@
     display: grid; 
     grid-template-columns: repeat(3, 1fr);
     margin-left: 45px;
+    
+}
+
+.link{
+    text-decoration: none;
 }

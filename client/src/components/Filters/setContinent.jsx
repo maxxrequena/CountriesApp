@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import {filterContinent} from '../../actions/actions'
 import { getCountries } from '../../actions/actions.js'
 
-function GetContinent(){
+function SetContinent(){
 
     const dispatch = useDispatch();
     
@@ -30,4 +30,4 @@ function GetContinent(){
 
 }
 
-export default GetContinent;
+export default SetContinent;

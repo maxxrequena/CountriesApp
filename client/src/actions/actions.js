@@ -4,6 +4,9 @@ export const GET_FILTER_COUNTRY = "GET_FILTER_COUNTRY"
 export const FILTER_CONTINENT = "FILTER_CONTINENT"
 export const SET_ORDER = "SET_ORDER"
 export const SET_AREA = "SET_AREA"
+export const GET_DETAIL = "GET_DETAIL"
+export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES"
+export const CREATE_ACTIVITY = "CREATE_ACTIVITY"
 
 export function getCountries(){
     return async function(dispatch){
@@ -18,12 +21,17 @@ export function getCountries(){
 
 export function getFilterCountry({name , area, order}){
     return async function(dispatch){
-        let json = await axios.get(`http://localhost:3001/countries?name=${name?name:""}&area=${area?area:""}&order=${order?order:""}`)
-            return dispatch({
-                type: 'GET_FILTER_COUNTRY',
-                payload: json.data
-            })
+        try {
+            let json = await axios(`http://localhost:3001/countries?name=${name?name:""}&area=${area?area:""}&order=${order?order:""}`)
+        return dispatch({
+            type: 'GET_FILTER_COUNTRY',
+            payload: json.data
+        })
+        } catch (error) {
+            console.log("error getFilterCountry", error)
+        }
     }
+      
 }
 
 export function filterContinent(payload){
@@ -46,3 +54,74 @@ export function setArea (area) {
         payload: area
     }
 }
+
+export function getDetail (id) {
+    return async function(dispatch){
+        try {
+            var json = await axios(`http://localhost:3001/countries/${id}`)
+            return dispatch ({
+                type: 'GET_DETAIL',
+                payload: json.data
+            })
+        } catch (error) {
+            console.log("error getDetail", error)
+        }
+    }
+}
+
+export function getAllActivities (){
+    return async function(dispatch){
+        try {
+            let json = axios.get('http://localhost:3001/activity')
+            return dispatch({
+            type: 'GET_ALL_ACTIVITIES',
+            payload: json.data
+            })
+        } catch (error) {
+            console.log("error GetAllActivities", error)
+        }
+    }
+}
+
+export function createActivity(activity){
+    return async function(){
+        try {
+            console.log("post pre await")
+            let json = await axios.post('http://localhost:3001/activity',activity)
+            return json
+        } catch (error) {
+            console.log("createActivity Error")
+        }
+    }
+}
+
+// export function createActivity(newActivity){
+//     axios.post('http://localhost:3001/activity', newActivity)
+//     .then( result => alert(result.data.message))
+// }
+
+// export const createActivity = (activity) => {
+//     return async function (dispatch) {
+//         try {
+//             await axios({
+//                 method: 'post',
+//                 url: '',
+//                 data: {
+//                     name: activity.name,
+//                     difficulty: parseInt(activity.difficulty),
+//                     duration: activity.duration,
+//                     season: activity.season,
+//                     country: activity.country
+//                 }
+//             });
+       
+//             return dispatch({
+//                 type: 'CREATE_ACTIVITY',
+//                 payload: activity
+//             })
+//         } catch (error) {
+//             console.log(error);
+//         }
+
+//     }
+// };
