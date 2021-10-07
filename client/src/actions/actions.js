@@ -7,6 +7,7 @@ export const SET_AREA = "SET_AREA"
 export const GET_DETAIL = "GET_DETAIL"
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES"
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY"
+export const DELETE_FILTER = "DELETE_FILTER"
 
 export function getCountries(){
     return async function(dispatch){

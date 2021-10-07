@@ -39,31 +39,27 @@ function Home () {
 
 
   return(
-      <div className={style.body}>
-        <div>
+      <div className={style.img}>
+        <div className={style.container}>
           <NavBar/>
           <Pagination 
             countriesPerPage ={countriesPerPage}
             allCountries={allCountries.length}
             paged={paged}
           />
-          
           <div className={style.cards}>
             {
               currentCountries ?  
               currentCountries.map( (c) => {
                   return (
                     <div key={c.id}>
-                      <Link to={'/countries/' + c.id}>
                         <Card flag={c.flag} name={c.name} continent={c.continent} id={c.id}/>
-                      </Link>
                     </div>
                   )
               }) :(<img src={gif} alt=" "></img>) 
             }
           </div>
         </div>
-       
       </div>       
   )
     

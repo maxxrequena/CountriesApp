@@ -1,21 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from '../Card/card.module.css'
 
 
 
-function Card ({flag, name, continent}){
+function Card ({flag, name, continent, id}){
     return (
-        <div className={style.card}>
-            <div >
-                <img className={style.img} src={flag} alt=" " width="350px" height="200px"></img>
-                <h2 className={style.h2}>{name}</h2>
-                <h3 className={style.h3}>{continent}</h3>
+        <div className={style.container}>
+            <div className={style.card}>
+                <Link to={'/countries/' + id}>
+                    <img className={style.img} src={flag} alt=" " width="350px" height="200px"></img>
+                    <h2 className={style.h2}>{name}</h2>
+                    <h3 className={style.h3}>{continent}</h3>
+                </Link>
             </div>
         
         </div>
-
     ) 
-
 }
 
 export default Card;

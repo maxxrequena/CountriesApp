@@ -6,7 +6,8 @@ import {
     SET_AREA,
     GET_DETAIL,
     GET_ALL_ACTIVITIES,
-    CREATE_ACTIVITY
+    CREATE_ACTIVITY,
+    DELETE_FILTER
 } from '../actions/actions.js'
 
 const initialState = {
@@ -69,7 +70,13 @@ function rootReducer(state = initialState, action){
         case CREATE_ACTIVITY:
             return{
                 ...state,
-            }               
+            }
+        case DELETE_FILTER:
+            return{
+                ...state,
+                allCountry: state.allCountries
+                
+            }                   
         default : return state
     }
 }

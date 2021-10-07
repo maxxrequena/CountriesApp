@@ -1,14 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap');
 
-.img {
-    width: 220px;
-    height: auto;
-    border-radius: 8px;
-    margin-top: -6px;
-    
+.container{
+    background-color: red;
+    justify-content: center; 
+    margin-left: 90px; 
+    width: 100px;
 }
 
-.card {
+.card{
+    background: linear-gradient(to bottom, #757575, #8d8b8b);
+    font-family: 'Alegreya SC', serif;
+    width: 220px;
+    height: 300px;
+    border-radius: 8px;
+    overflow:hidden;
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+    /* display:grid;
+    grid-template-columns: repeat(3, 1fr); */
+}
+.img {
+    width: 230px;
+    height: 180px;
+    border-radius: 8px;
+    margin-top: -6px;
+}
+/* .card {
     font-family: 'Alegreya SC', serif;
     text-shadow: 1px 2px 5px black;
     font-size: 18px;
@@ -16,7 +34,7 @@
     width: 220px;
     height: 300px;
     padding: 0.6rem 0.3rem;
-    /* background-color: #8d8b8b; */
+    background-color: #8d8b8b;
     background: linear-gradient(to bottom, #757575, #8d8b8b);
     border-radius: 8px;
     opacity: 0.9;
@@ -24,7 +42,7 @@
     box-sizing: border-box;
     
 }
-
+ */
 
 .card:hover {
     opacity: 1.3;

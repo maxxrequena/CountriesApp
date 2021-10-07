@@ -24,7 +24,7 @@ function Search(){
             <input type="text"
             placeholder='search country...'
             onChange={(e) => handleChange(e)} />
-            <button  className={style.search} type='submit' onClick= {(e)=> handleSubmit(e)}>Search</button>
+            <button type='submit' onClick= {(e)=> handleSubmit(e)}>Search</button>
         </div>
     )
 }

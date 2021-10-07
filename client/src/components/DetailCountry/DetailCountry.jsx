@@ -11,7 +11,7 @@ function DetailCountry (){
     
     const dispatch = useDispatch(); 
     const detail = useSelector(state => state.detailCountry)
-    console.log("detail ", detail)
+    // console.log("detail ", detail)
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch])
@@ -32,8 +32,8 @@ function DetailCountry (){
                 {detail?.activities?.length ?
                     detail?.activities.map(a => {
                         return (<div key={a.id} >
-                            <p>{a.name}</p>
-                            <p>Difficulty: {a.dificulty}</p>
+                            <p>Name :{a.name}</p>
+                            <p>Difficulty: {a.difficulty}</p>
                             <p>Duration: {a.duration} mins</p>
                             <p>Season: {a.season}</p>
                         </div>)
