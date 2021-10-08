@@ -83,6 +83,7 @@ async function getCountries(req, res, next){
                 ],
                 include: Activity,
             })
+            if(order === "Def" || !order || order === "") return res.send(country);
             
             if(order === "Asc" || !order || order === ""){
                 countryOrder = country.sort((a,b) =>{
@@ -117,6 +118,8 @@ async function getCountries(req, res, next){
                 include: Activity,
             })
             let sortArea;
+            if(area === "Def" || !area || area === "") return res.send(country)
+            
             if(area === "Asc" || !area || area ===""){
                 sortArea = function(a,b) {
                     if(a.area > b.area) return 1;

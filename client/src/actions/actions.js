@@ -96,33 +96,3 @@ export function createActivity(activity){
     }
 }
 
-// export function createActivity(newActivity){
-//     axios.post('http://localhost:3001/activity', newActivity)
-//     .then( result => alert(result.data.message))
-// }
-
-// export const createActivity = (activity) => {
-//     return async function (dispatch) {
-//         try {
-//             await axios({
-//                 method: 'post',
-//                 url: '',
-//                 data: {
-//                     name: activity.name,
-//                     difficulty: parseInt(activity.difficulty),
-//                     duration: activity.duration,
-//                     season: activity.season,
-//                     country: activity.country
-//                 }
-//             });
-       
-//             return dispatch({
-//                 type: 'CREATE_ACTIVITY',
-//                 payload: activity
-//             })
-//         } catch (error) {
-//             console.log(error);
-//         }
-
-//     }
-// };

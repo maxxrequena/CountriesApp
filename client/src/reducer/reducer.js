@@ -74,7 +74,6 @@ function rootReducer(state = initialState, action){
         case DELETE_FILTER:
             return{
                 ...state,
-                allCountry: state.allCountries
                 
             }                   
         default : return state

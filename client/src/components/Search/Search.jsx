@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {getFilterCountry} from '../../actions/actions.js'
-import style from '../Search/search.module.css'
 
 function Search(){
 

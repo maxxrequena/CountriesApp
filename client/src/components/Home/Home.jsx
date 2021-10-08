@@ -32,12 +32,6 @@ function Home () {
     dispatch(getFilterCountry({}))
   },[dispatch])
 
-//   function handleClick(e) {
-//     e.preventDefault();
-//     dispatch(getCountries())
-// }
-
-
   return(
       <div className={style.img}>
         <div className={style.container}>

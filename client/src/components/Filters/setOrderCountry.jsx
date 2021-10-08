@@ -16,6 +16,7 @@ function SetOrderCountry () {
        
         <div>
             <select onChange={handleSelect}>
+                <option value="Def">Default</option>
                 <option value="Asc">Ascendente</option>
                 <option value="Desc">Descendente</option>
             </select>
