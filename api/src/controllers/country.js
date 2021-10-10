@@ -145,6 +145,7 @@ async function getCountries(req, res, next){
                     "area",
                     "subregion",
                 ],
+                //REVISAR EL INCLUDES
                 include: Activity
             })
             return res.send(countries);

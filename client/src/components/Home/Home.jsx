@@ -30,6 +30,10 @@ function Home () {
   const paged = (pageNumber) =>{
     setCurrentPage(pageNumber)
   }
+  function handleReset(e){
+    e.preventDefault();
+    dispatch(getCountries())
+  }
 
   useEffect(() => {
     dispatch(getCountries());
@@ -40,17 +44,16 @@ function Home () {
       <div className={style.img}>
         <div className={style.container}>
           <nav className={style.nav}>
-           {/* <a className={style.button} href='/home' > Home </a> */}
-            <Link to="/home"><button className={style.button}> Home </button> </Link>
-            {/* <ul>
-            <button className={style.button} onClick={(e)=> handleReset(e)}>Reset Page</button>
-            </ul> */}
-            <Link to='/activity'><button className={style.button}> Activity Create</button> </Link> 
+            <Link to=" "><button  onClick={(e)=> handleReset(e)}className={style.button}> Home </button> </Link>
+            <Link to='/activity'><button className={style.button}> Activity Create</button> </Link>
+            <Link to='/favorites'><button className={style.button}> Favorites</button> </Link>  
+            <Search/>
+            </nav>
+            <nav className={style.nav2}>
             <SetContinent/>
             <SetOrderCountry/>
-            <SetArea/>  
-            <Search/>
-          </nav>
+            <SetArea/> 
+            </nav>
           <Pagination 
             countriesPerPage ={countriesPerPage}
             allCountries={allCountries.length}
@@ -67,8 +70,7 @@ function Home () {
                   )
               }) :(<img src={gif} alt=" "></img>) 
             }
-          </div>
-         
+          </div> 
         </div>
       </div>       
   )

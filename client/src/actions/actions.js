@@ -87,7 +87,6 @@ export function getAllActivities (){
 export function createActivity(activity){
     return async function(){
         try {
-            console.log("post pre await")
             let json = await axios.post('http://localhost:3001/activity',activity)
             return json
         } catch (error) {
@@ -96,3 +95,13 @@ export function createActivity(activity){
     }
 }
 
+export function addFavorites(favorite){
+    return async function(){
+        try {
+            let json = await axios.post('http://localhost:3001/activity',favorite)
+            return json
+        } catch (error) {
+            console.log("addFavorite Error")
+        }
+    }
+}

@@ -1,17 +1,18 @@
-/* .ul {
+.ul {
     list-style-type: none;
-} */
+   
+}
 
 .list {
     display: inline-block;
+ 
 }
 .btn {
     font-family: 'Stick No Bills', sans-serif;
-    display: inline-block;
     color: white;
     background-color: #f1f1f15e;
     margin-top: 5px;
-    margin-left: 5px;
+    margin-left: 15px;
     border: none;
     font-size: 15px;
     padding: 5px 8px;

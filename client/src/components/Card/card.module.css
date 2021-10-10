@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap');
 
 .container{
-    background-color: red;
+    /* background-color: red; */
     justify-content: center; 
     margin-left: 90px; 
     width: 100px;
 }
 
 .card{
-    background: linear-gradient(to bottom, #757575, #8d8b8b);
-    font-family: 'Alegreya SC', serif;
+    /* background: linear-gradient(to bottom, #757575, #8d8b8b); */
+    background-color:white;
     width: 220px;
     height: 300px;
     border-radius: 8px;
@@ -19,8 +19,8 @@
     cursor: pointer;
 }
 .img {
-    width: 230px;
-    height: 180px;
+    max-width: 220px;
+    max-height: 160px;
     border-radius: 8px;
     margin-top: -6px;
 }
@@ -33,14 +33,16 @@
 }
 
 .h2{
+    font-family: 'Alegreya SC', serif;
     text-decoration: none;
     margin-top: 5px;
-    color: rgb(243, 243, 243);
+    color: rgb(0, 0, 0);
     
 }
 
 .h3{
+    font-family: 'Alegreya SC', serif;
     text-decoration: none;
     margin-top: 18px;
-    color: white; 
+    color: rgb(0, 0, 0);
 }

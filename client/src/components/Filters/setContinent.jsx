@@ -20,22 +20,15 @@ function SetContinent(){
     return(
         <div className={style.select} >
             <select onChange = {(e)=>handleFilterContinent(e)} >
-                <option value ='All'>All</option>
-                <option value ='Americas'>America</option>
-                <option value ='Europe'>Europe</option>
-                <option value ='Africa'>Africa</option>
-                <option value ='Asia'>Asia</option>
-                <option value ='Oceania'>Oceania</option>
+                <optgroup label="Select Continent">
+                    <option value ='All'>All Countries</option>
+                    <option value ='Americas'>America</option>
+                    <option value ='Europe'>Europe</option>
+                    <option value ='Africa'>Africa</option>
+                    <option value ='Asia'>Asia</option>
+                    <option value ='Oceania'>Oceania</option>
+                </optgroup>
             </select>
-            {/* <div className={style.proyects}>
-                <ul>
-                    <li value='All' onChange = {(e)=>handleFilterContinent(e)}>All</li>
-                    <li><a href=" ">Music App</a></li>
-                    <li><a href=" ">React App</a></li>
-                    <li><a href=" ">Youtube App</a></li>
-                </ul>
-            </div>
-  */}
         </div>
          
     )

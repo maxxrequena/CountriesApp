@@ -8,7 +8,7 @@ select {
     box-shadow: none;
     /* Personalize */
     font-family: 'Stick No Bills', sans-serif;
-    border-radius: 10px;
+    border-radius: 25px;
     flex: 1;
     padding: 0 1em;
     color: #fff;
@@ -17,79 +17,38 @@ select {
     cursor: pointer;
 }
 /* Remove IE arrow */
-select::-ms-expand {
+/* select::-ms-expand {
     display: none;
     
-}
+} */
 /* Custom Select wrapper */
-/* .select {
-    font-family: 'Stick No Bills', sans-serif;
-    margin-top: 6px;
+.select {
+    margin-top: 10px;
     margin-left: 5px;
     margin-right: 2px;
     position: relative;
     display: flex;
-    width: 235px;
-    height: 25px;
-    border-radius: .25em;
+    width: 225px;
+    height: 27px;
+    border-radius: 10px;
     overflow: hidden;
     border-radius: 10px;
-} */
-.select {
-    font-family: 'Stick No Bills', sans-serif;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    color: #e0d8d8;
-
-    border-radius: 8px;
-    font-size: 16px;
-    margin-top: 6px;
-    margin-left: 5px;
-    margin-right: 2px;
-    background-color: transparent;
-    border: 3px solid #e0d8d8;
-    border-radius: 50px;
-    /* -webkit-transition: all .15s ease-in-out; */
-   
-    /* transition: all .35s ease-in-out; */
-    overflow: hidden;
-   
 }
+
 /* Arrow */
 .select::after {
     content: '\25BC';
-    width: 25px;
-    top: 227px;
+    position: absolute;
+    top: -14px;
+    right: 0;
     padding: 1em;
-    background-color: #34495e;
+    background-color: #e0d8d8 ;
     transition: .25s all ease;
     pointer-events: none;
 }
 /* Transition */
-/* .select:hover::after {
-    color: #f39c12;
-    
-} */
-.select:hover::after {
-    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 20px 2px #e0d8d8;
-    border: 3px solid #e0d8d8;
+.select:hover {
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #e0d8d8;
 }
-    
 
-/* Other styles*/
-/* body {
-    color: #fff;
-    background: var(--background-gradient);
-} */
-/* h1 {
-    margin: 0 0 0.25em;
-}
-option {
-    font-weight: bold;
-    color: var(--gray);
-    text-decoration: none;
-    padding: .25em;
-    border-radius: .25em;
-    background: white;
-} */
+    

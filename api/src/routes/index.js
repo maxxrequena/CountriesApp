@@ -5,11 +5,13 @@ const { Router } = require('express');
 const router = Router();
 const routeActivity = require('./activity.js')
 const routeCountries = require('./country.js')
+const routeFavorites = require('./favorites.js')
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use('/countries', routeCountries)
 router.use('/activity', routeActivity);
+router.use('/favorites', routeFavorites);
 
 
 module.exports = router;

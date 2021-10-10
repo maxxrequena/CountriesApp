@@ -17,7 +17,7 @@ function SetArea(){
         <div className={style.select}>
             <select onChange={handleSelect}>
                 <optgroup label="Area for Km2">
-                    <option value="Def">Default</option>
+                    <option value="Def">Default Area</option>
                     <option value="Asc">Ascendente</option>
                     <option value="Desc">Descendente</option>
                 </optgroup>

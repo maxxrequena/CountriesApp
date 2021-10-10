@@ -9,7 +9,6 @@ function Card ({flag, name, continent, id}){
         <div className={style.container}>
             <div className={style.card}>
                 <Link to={'/countries/' + id}>
-                    
                     <img className={style.img} src={flag} alt=" " width="350px" height="200px"></img>
                 </Link>
                     <h2 className={style.h2}>{name}</h2>

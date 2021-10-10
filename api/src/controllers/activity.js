@@ -4,10 +4,9 @@ const { Activity, Country} = require('../db');
 async function activityCreate(req, res, next){
 
     const { name, difficulty, duration, season, idCountry} = req.body; 
-    console.log("ID BACK", idCountry);
+  
     try {
 
-        // let id = uuidv4();
         let newActivity = await Activity.create({
             name, 
             difficulty,

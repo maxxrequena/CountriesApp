@@ -17,9 +17,11 @@ function SetOrderCountry () {
        
         <div className={style.select}>
             <select onChange={handleSelect}>
-                <option value="Def">Default</option>
-                <option value="Asc">Ascendente</option>
-                <option value="Desc">Descendente</option>
+                <optgroup label="Alphabetic Order">
+                    <option value="Def">Default Order</option>
+                    <option value="Asc">A -Z</option>
+                    <option value="Desc">Z - A</option>
+                </optgroup>
             </select>
         </div>
      )

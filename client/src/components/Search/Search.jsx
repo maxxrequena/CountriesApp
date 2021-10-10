@@ -21,7 +21,7 @@ function Search(){
 
     return(
         <div> 
-            <input className={style.input}
+            <input className={style.button}
             type="text"
             placeholder='search country...'
             onChange={(e) => handleChange(e)} />
