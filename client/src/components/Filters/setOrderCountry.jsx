@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { useDispatch} from 'react-redux';
 import { getFilterCountry, setOrder } from '../../actions/actions'
+import style from '../Filters/filters.module.css'
      
 
 function SetOrderCountry () {
@@ -14,7 +15,7 @@ function SetOrderCountry () {
 
     return(
        
-        <div>
+        <div className={style.select}>
             <select onChange={handleSelect}>
                 <option value="Def">Default</option>
                 <option value="Asc">Ascendente</option>

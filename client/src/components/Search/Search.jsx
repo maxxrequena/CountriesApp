@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {getFilterCountry} from '../../actions/actions.js'
+import style from '../Search/search.module.css'
 
 function Search(){
 
@@ -20,10 +21,13 @@ function Search(){
 
     return(
         <div> 
-            <input type="text"
+            <input className={style.input}
+            type="text"
             placeholder='search country...'
             onChange={(e) => handleChange(e)} />
-            <button type='submit' onClick= {(e)=> handleSubmit(e)}>Search</button>
+            <button  className={style.button}
+            type='submit' 
+            onClick= {(e)=> handleSubmit(e)}>Search</button>
         </div>
     )
 }

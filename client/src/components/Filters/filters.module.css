@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap');
+
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    font-family: 'Stick No Bills', sans-serif;
+    border-radius: 10px;
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: var(--darkgray);
+    background-image: none;
+    cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+    
+}
+/* Custom Select wrapper */
+/* .select {
+    font-family: 'Stick No Bills', sans-serif;
+    margin-top: 6px;
+    margin-left: 5px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    width: 235px;
+    height: 25px;
+    border-radius: .25em;
+    overflow: hidden;
+    border-radius: 10px;
+} */
+.select {
+    font-family: 'Stick No Bills', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: #e0d8d8;
+
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 6px;
+    margin-left: 5px;
+    margin-right: 2px;
+    background-color: transparent;
+    border: 3px solid #e0d8d8;
+    border-radius: 50px;
+    /* -webkit-transition: all .15s ease-in-out; */
+   
+    /* transition: all .35s ease-in-out; */
+    overflow: hidden;
+   
+}
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    width: 25px;
+    top: 227px;
+    padding: 1em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+/* Transition */
+/* .select:hover::after {
+    color: #f39c12;
+    
+} */
+.select:hover::after {
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 20px 2px #e0d8d8;
+    border: 3px solid #e0d8d8;
+}
+    
+
+/* Other styles*/
+/* body {
+    color: #fff;
+    background: var(--background-gradient);
+} */
+/* h1 {
+    margin: 0 0 0.25em;
+}
+option {
+    font-weight: bold;
+    color: var(--gray);
+    text-decoration: none;
+    padding: .25em;
+    border-radius: .25em;
+    background: white;
+} */

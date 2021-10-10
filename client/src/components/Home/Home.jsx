@@ -2,13 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import style from '../Home/home.module.css'
 import Card from '../Card/Card.jsx'
-import NavBar from '../NavBar/NavBar.jsx'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCountries, getFilterCountry } from '../../actions/actions.js'
 import Pagination from '../Pagination/Pagination.jsx'
 import gif from '../Home/globeGid.gif'
+import Search from '../Search/Search.jsx'
+import SetContinent from '../Filters/setContinent.jsx'
+import SetOrderCountry from '../Filters/setOrderCountry'
+import SetArea from '../Filters/setArea.jsx'
+
 
 
 
@@ -29,13 +33,24 @@ function Home () {
 
   useEffect(() => {
     dispatch(getCountries());
-    dispatch(getFilterCountry({}))
+    // dispatch(getFilterCountry({}))
   },[dispatch])
 
   return(
       <div className={style.img}>
         <div className={style.container}>
-          <NavBar/>
+          <nav className={style.nav}>
+           {/* <a className={style.button} href='/home' > Home </a> */}
+            <Link to="/home"><button className={style.button}> Home </button> </Link>
+            {/* <ul>
+            <button className={style.button} onClick={(e)=> handleReset(e)}>Reset Page</button>
+            </ul> */}
+            <Link to='/activity'><button className={style.button}> Activity Create</button> </Link> 
+            <SetContinent/>
+            <SetOrderCountry/>
+            <SetArea/>  
+            <Search/>
+          </nav>
           <Pagination 
             countriesPerPage ={countriesPerPage}
             allCountries={allCountries.length}
@@ -53,6 +68,7 @@ function Home () {
               }) :(<img src={gif} alt=" "></img>) 
             }
           </div>
+         
         </div>
       </div>       
   )

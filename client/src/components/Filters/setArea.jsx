@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { useDispatch} from 'react-redux';
-import{ getFilterCountry, setArea } from '../../actions/actions'
+import{ getFilterCountry, setArea } from '../../actions/actions';
+import style from '../Filters/filters.module.css'
 
 
 function SetArea(){
@@ -13,7 +14,7 @@ function SetArea(){
     }
 
     return (
-        <div>
+        <div className={style.select}>
             <select onChange={handleSelect}>
                 <optgroup label="Area for Km2">
                     <option value="Def">Default</option>

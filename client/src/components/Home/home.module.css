@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap');
 .container{
     width: 100%;
-    margin: auto;
+    /* margin: auto; */
 }
 .img{
-    font-family: 'Stick No Bills', sans-serif;
     background-color: #000000;
     /* background-position: center center; */
     background-repeat: no-repeat;
@@ -17,5 +16,48 @@
 .cards{
     display: grid; 
     grid-template-columns: repeat(3, 1fr);
+}
+
+
+/* navBar */
+
+.nav {
+    height: 50px;
+    width: 100%;
+    margin-top: 12px;
+    background-color: #f1f1f15e;
+    /* opacity: 0.7; */
+    display: flex;
+    position: relative;
+    text-decoration: none;
+}
+
+Link{
+    text-decoration: none;
+}
+
+.button{
+  
+    font-family: 'Stick No Bills', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: #e0d8d8;
+    padding: 1px;
+    border-radius: 25px;
+    font-size: 22px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: 3px solid #e0d8d8;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    width: 190px;
+    transition: all .35s ease-in-out;
+ 
+}
+
+.button:hover {
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 20px 2px #e0d8d8;
+    border: 3px solid #e0d8d8;
 }
 
