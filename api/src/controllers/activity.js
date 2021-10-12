@@ -13,7 +13,7 @@ async function activityCreate(req, res, next){
             duration,
             season
         })
-        const country = await Country.findOne({
+        const country = await Country.findAll({
             where:{
                 id :idCountry
             }
@@ -27,6 +27,19 @@ async function activityCreate(req, res, next){
     }
 }
 
+async function getAllActivities (req, res, next){
+
+    try {
+        const activities = await Activity.findAll({
+            include: Country
+        });
+        return res.json(activities)
+    } catch (err) {
+        return next(err);
+    }
+}
+
 module.exports = {
-    activityCreate
+    activityCreate,
+    getAllActivities
 }

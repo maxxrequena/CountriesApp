@@ -35,13 +35,13 @@ function DetailCountry (){
                         return (<div key={a.id} >
                             <p>Name :{a.name}</p>
                             <p>Difficulty: {a.difficulty}</p>
-                            <p>Duration: {a.duration} mins</p>
+                            <p>Duration: {a.duration} Hs.</p>
                             <p>Season: {a.season}</p>
                         </div>)
                     }) :
                     <p> NO HAY ACTIVIDADES PARA ESTE PAIS</p>
                 }
-                <button><Link to='/home'> Return Home</Link></button>
+                <button className={style.button} ><Link to='/home'> Return Home</Link></button>
             </div>
         </div>
     )

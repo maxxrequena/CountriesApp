@@ -3,7 +3,7 @@ const { Activity, Country, Favorites } = require('../db');
 
 async function addFavorites(req, res, next){
 
-    const { idCountry} = req.body; 
+    const { idCountry } = req.body; 
 
     try {
 

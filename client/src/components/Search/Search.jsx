@@ -6,8 +6,7 @@ import style from '../Search/search.module.css'
 function Search(){
 
     const dispatch = useDispatch();
-    const [name, setName] = useState(" ");
-    // const {area, order} = useSelector(state => state.allCountry)
+    const [name, setName] = useState("");
 
     function handleChange(e){
         e.preventDefault();

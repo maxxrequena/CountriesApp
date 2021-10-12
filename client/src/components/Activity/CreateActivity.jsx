@@ -9,7 +9,10 @@ import style from '../Activity/createActivity.module.css'
 
 function validate (activity) {
     let errors = {};
-    console.log("validate act", activity)
+    
+    if(!activity.idCountry.length){
+        errors.idCountry = 'Country must be completed';
+    }
     if (!activity.name) {
         errors.name = "Requiere Name";
     }
@@ -25,9 +28,7 @@ function validate (activity) {
     if (!activity.season) {
         errors.season = "Requiere Season"
     } 
-    if (!activity.idCountry.length) {
-        errors.idCountry = "Requiere Country"
-    }
+
     return errors
 }
 
@@ -61,6 +62,17 @@ function CreateActivity(){
             [e.target.name]: e.target.value
         }))
     }
+    // function handleSelect(e) {
+    //     activity.idCountry.length < 2 && !activity.idCountry.includes(e.target.value) ? 
+    //     setActivity({
+    //         ...activity,
+    //         idCountry: [...activity.idCountry, e.target.value]
+    //     }) : alert('Maximum two types')
+    //     setErrors(validate({
+    //         ...activity,
+    //         idCountry: [...activity.idCountry, e.target.value]
+    //     }))
+    // }
   
     function handleChange(e) {
    
@@ -74,8 +86,11 @@ function CreateActivity(){
             [e.target.name]: e.target.value
         }))
     }
+
+    
     
     function handleDelete(el){
+        // console.log("handleDelete", activity)
         setActivity({
             ...activity,
             idCountry: activity.idCountry.filter(occ => occ !== el)
@@ -99,19 +114,22 @@ function CreateActivity(){
     return (
         <div className={style.container}>
             <div className={style.card}>
-                <section>
-                    <h1>Crea  la actividad turistica</h1>
-                        <Link to="/home" ><button >VOLVER A HOME</button></Link>
-                        <form onSubmit={e => { handleSubmit(e) }}>
+                        <h1>Crea  la actividad turistica</h1>
+                        <Link to="/home" ><button className={style.button}>VOLVER A HOME</button></Link>
+                    <form onSubmit={e => { handleSubmit(e) }}>
                         {/* <label >Selecciona el Pais</label> */}
                     <div className={style.select} >
-                        <select  onChange= {(e) => handleSelect(e)}>
-                                <option>Select country...</option>
-                                 {countries.map((c) => (
-                                    <option  key={c.id} value={c.id}>{c.name}</option>
+                        <select onChange= {(e) => handleSelect(e)}>
+                                {/* <option value=' '>Select Country</option> */}
+                                <optgroup label="Select Country">
+                                {countries && countries.map((c) => (
+                                    <option key={c.id} value={c.id}>{c.name}</option>
                                 ))}
+                                </optgroup>
                         </select>
-                       
+                        {/* <ul>
+                            <h5>{countries?.idCountry.map(e => e + ", ")}</h5>
+                        </ul> */}
                     </div>
                     <div className={style.select} >
                         <select
@@ -152,56 +170,27 @@ function CreateActivity(){
                             <option value="Spring">Primavera</option>
                             <option value="Fall">Otoño</option>
                         </select>
-                        {/* <label>
-                                    <input
-                                        type='checkbox'
-                                        name='Summer'
-                                        value='Summer'
-                                        onChange={(e) => handleChange(e)}
-                                    />Summer</label>
-                                <label>
-                                    <input
-                                        type='checkbox'
-                                        name='Fall'
-                                        value='Fall'
-                                        onChange={(e) => handleChange(e)}
-                                    />Fall</label>
-                                <label>
-                                    <input
-                                        type='checkbox'
-                                        name='Winter'
-                                        value='Winter'
-                                        onChange={(e) => handleChange(e)}
-                                    />Winter</label>
-                                <label>
-                                    <input
-                                        type='checkbox'
-                                        name='Spring'
-                                        value='Spring'
-                                        onChange={(e) => handleChange(e)}
-                                    />Spring</label>             */}
                     </div>
-                    <div>
+                    <div >
                         {/* <label >Nombre:</label> */}
-                        <input type='text' value={activity.name} name='name' placeholder= "Insert name activity"
+                        <input className={style.input} type='text' value={activity.name} name='name' placeholder= "Insert name activity"
                             onChange={(e) => {handleChange(e) }}>
                         </input>
                         
                     </div>
-                    <button type='submit'>Crear Actividad</button>
+                    <button className={style.button} type='submit'>Crear Actividad</button>
                 </form>
-                    {activity.idCountry.map(el =>
-                        <div> 
-                            <p>{el}</p>
-                            <button onClick={()=> handleDelete(el)}>X</button>
-                        </div>)
-                    }
+                    {activity.idCountry.map((e, i) =>
+                        <div key={i}> 
+                            <p >{e}</p>
+                            <button onClick={()=> handleDelete(e)}>X</button>
+                        </div>
+                    )}
                     {errors.idCountry && (<p>{errors.idCountry}</p>)}
                     {errors.name && (<p>{errors.name}</p>)}
                     {errors.difficulty && (<p>{errors.difficulty}</p>)}
                     {errors.duration && (<p >{errors.duration}</p>)}
                     {errors.season && (<p>{errors.season}</p>)}
-            </section>
             </div>
         </div>
     )

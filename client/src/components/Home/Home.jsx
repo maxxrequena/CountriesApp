@@ -5,13 +5,14 @@ import Card from '../Card/Card.jsx'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCountries, getFilterCountry } from '../../actions/actions.js'
+import { getCountries, addFavorites, getAllActivities} from '../../actions/actions.js'
 import Pagination from '../Pagination/Pagination.jsx'
 import gif from '../Home/globeGid.gif'
 import Search from '../Search/Search.jsx'
 import SetContinent from '../Filters/setContinent.jsx'
 import SetOrderCountry from '../Filters/setOrderCountry'
 import SetArea from '../Filters/setArea.jsx'
+import SetActivity from '../Filters/setActivity.jsx'
 
 
 
@@ -20,6 +21,10 @@ function Home () {
 
   const dispatch = useDispatch();
   const allCountries = useSelector(state => state.allCountry)
+
+  const [favorites, setFavorites] = useState({
+    idCountry: []
+  })
    
   const [currentPage, setCurrentPage] = useState(1);
   const countriesPerPage = 9;
@@ -37,8 +42,24 @@ function Home () {
 
   useEffect(() => {
     dispatch(getCountries());
-    // dispatch(getFilterCountry({}))
+    dispatch(getAllActivities());
   },[dispatch])
+
+  function handleSelect(e) {
+    setFavorites({
+      ...allCountries,
+      idCountry: [...allCountries.idCountry, e.target.value]
+    })
+  }
+
+  function handleSubmit(e){
+    e.preventDefault();
+    dispatch(addFavorites(favorites))
+    setFavorites({
+      idCountry : []
+    })
+  }
+  //BUTON > SELECCIONAR ID, HANDLE ID A FAV
 
   return(
       <div className={style.img}>
@@ -53,6 +74,7 @@ function Home () {
             <SetContinent/>
             <SetOrderCountry/>
             <SetArea/> 
+            <SetActivity/>
             </nav>
           <Pagination 
             countriesPerPage ={countriesPerPage}

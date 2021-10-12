@@ -7,16 +7,21 @@ export const SET_AREA = "SET_AREA"
 export const GET_DETAIL = "GET_DETAIL"
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES"
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY"
-export const DELETE_FILTER = "DELETE_FILTER"
+export const ACTIVITY_FILTER = "ACTIVITY_FILTER"
 
 export function getCountries(){
     return async function(dispatch){
-        var json = await axios('http://localhost:3001/countries');
-        //  console.log("json de action",json)
-        return dispatch({
+        try {
+            var json = await axios('http://localhost:3001/countries');
+            //  console.log("json de action",json)
+            return dispatch({
             type: 'GET_ALL_COUNTRIES',
             payload: json.data
-        })
+            })
+            
+        } catch (error) {
+            console.log("eerror", error)
+        }
     }
 }
 
@@ -73,10 +78,10 @@ export function getDetail (id) {
 export function getAllActivities (){
     return async function(dispatch){
         try {
-            let json = axios.get('http://localhost:3001/activity')
+            let json = await axios.get('http://localhost:3001/activity')
             return dispatch({
-            type: 'GET_ALL_ACTIVITIES',
-            payload: json.data
+                type: 'GET_ALL_ACTIVITIES',
+                payload: json.data
             })
         } catch (error) {
             console.log("error GetAllActivities", error)
@@ -104,4 +109,13 @@ export function addFavorites(favorite){
             console.log("addFavorite Error")
         }
     }
+}
+
+export function activityFilter(payload){
+    return function(dispatch){
+        return dispatch({
+        type: ACTIVITY_FILTER,
+        payload
+    })
+}
 }

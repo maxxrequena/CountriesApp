@@ -16,11 +16,7 @@ select {
     background-image: none;
     cursor: pointer;
 }
-/* Remove IE arrow */
-/* select::-ms-expand {
-    display: none;
-    
-} */
+
 /* Custom Select wrapper */
 .select {
     margin-top: 10px;

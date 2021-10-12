@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap');
+
 body{
     width: 100%;
     height: 100%;
@@ -5,24 +7,23 @@ body{
     font-family: sans-serif;
     letter-spacing: 0.03em;
     line-height: 1.6;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Stick No Bills', sans-serif;
 }
 .container{
     width: 100%;
     max-width: 1200px;
     height: 430px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     margin: auto;
 }
 
 .container .card{
-    background-color:rgb(150, 137, 137);
+    background-color:#e6e1e1;
     width: 430px;
-    height: 630px;
+    height: 530px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     margin: 20px;
     text-align: center;
@@ -59,7 +60,7 @@ body{
     --darkgray: #2c3e50; */
     --gray: #e0d8d8 ;
     --darkgray: #e0d8d8 ;
-    margin-top: 4px;
+    margin-top: 20px;
 }
 
 
@@ -78,52 +79,79 @@ select {
     background-image: none;
     cursor: pointer;
 }
-/* Remove IE arrow */
-select::-ms-expand {
-    display: none;
-    
-}
+
 /* Custom Select wrapper */
 .select {
-    margin-top: 4px;
-    margin-left: 45px;
+    margin-top: 18px;
+    margin-left: 85px;
+    margin-right: 2px;
     position: relative;
     display: flex;
-    width: 350px;
-    height: 30px;
-    border-radius: .25em;
+    width: 275px;
+    height: 27px;
+    border-radius: 10px;
     overflow: hidden;
+    border-radius: 8px;
 }
+
 /* Arrow */
 .select::after {
     content: '\25BC';
     position: absolute;
-    top: -10px;
+    top: -14px;
     right: 0;
     padding: 1em;
-    background-color: #34495e;
+    background-color: #e0d8d8 ;
     transition: .25s all ease;
     pointer-events: none;
 }
 /* Transition */
-.select:hover::after {
-    color: #f39c12;
-    
+.select:hover {
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #000000;
 }
 
-/* Other styles*/
-/* body {
-    color: #fff;
-    background: var(--background-gradient);
-} */
-    h1 {
-    margin: 0 0 0.25em;
-}
-option {
-    font-weight: bold;
-    color: var(--gray);
+.input {
+    width: 260px;
+    height: 25px;
+    font-family: 'Stick No Bills', sans-serif;
     text-decoration: none;
-    padding: .25em;
-    border-radius: .25em;
-    background: white;
+    text-align: center;
+    cursor: pointer;
+    color: #000000;
+    /* padding: 1px; */
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 8px;
+    background-color: transparent;
+    border: 3px solid #d3caca;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    
+    transition: all .35s ease-in-out;
 }
+.button{
+  
+    font-family: 'Stick No Bills', sans-serif;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: #000000;
+    /* padding: 1px; */
+    border-radius: 25px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 8px;
+    background-color: transparent;
+    border: 3px solid #e0d8d8;
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    width: 160px;
+    transition: all .35s ease-in-out;
+ 
+}
+
+.button:hover {
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #000000;
+}
+
+    

@@ -7,7 +7,7 @@ import {
     GET_DETAIL,
     GET_ALL_ACTIVITIES,
     CREATE_ACTIVITY,
-    DELETE_FILTER
+    ACTIVITY_FILTER
 } from '../actions/actions.js'
 
 const initialState = {
@@ -71,11 +71,20 @@ function rootReducer(state = initialState, action){
             return{
                 ...state,
             }
-        case DELETE_FILTER:
-            return{
-                ...state,
-                
-            }                   
+        case ACTIVITY_FILTER:
+            const filterAct = state.allActivities
+            if(action.payload === 'All'){
+                return{
+                    ...state,
+                    allCountry: state.allCountries
+                }
+            }else{
+                const filter = filterAct.filter(a=> a.name === action.payload)[0].countries.map(country => country)
+                return{
+                    ...state, 
+                    allCountry: filter
+                }                  
+            }
         default : return state
     }
 }
