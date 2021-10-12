@@ -33,7 +33,7 @@
 }
 
 .button:hover {
-    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px;
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #000000;
 }
 
 

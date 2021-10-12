@@ -12,16 +12,14 @@ select {
     flex: 1;
     padding: 0 1em;
     color: #fff;
-    background-color: var(--darkgray);
-    background-image: none;
     cursor: pointer;
 }
 
 /* Custom Select wrapper */
 .select {
     margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 2px;
+    margin-left: 8px;
+    margin-right: 6px;
     position: relative;
     display: flex;
     width: 225px;
@@ -44,7 +42,7 @@ select {
 }
 /* Transition */
 .select:hover {
-    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #e0d8d8;
+    box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #000000;
 }
 
     

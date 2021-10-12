@@ -20,7 +20,8 @@ body{
 }
 
 .container .card{
-    background-color:#e6e1e1;
+    background-color: #e6e1e1;
+    opacity: 1.0;
     width: 430px;
     height: 530px;
     border-radius: 8px;

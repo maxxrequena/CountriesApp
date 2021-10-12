@@ -65,9 +65,9 @@ function Home () {
       <div className={style.img}>
         <div className={style.container}>
           <nav className={style.nav}>
-            <Link to=" "><button  onClick={(e)=> handleReset(e)}className={style.button}> Home </button> </Link>
-            <Link to='/activity'><button className={style.button}> Activity Create</button> </Link>
-            <Link to='/favorites'><button className={style.button}> Favorites</button> </Link>  
+            <Link to="/home"><button className={style.button}> Home </button> </Link>
+            <Link to='/activity'><button className={style.button}  > Activity Create</button> </Link>
+            <Link to=''><button  onClick={(e)=>handleReset(e)} className={style.button}> Favorites</button> </Link>  
             <Search/>
             </nav>
             <nav className={style.nav2}>
