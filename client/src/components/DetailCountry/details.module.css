@@ -8,16 +8,20 @@ body{
     
 }
 .container{
-
-    width: 600%;
-    max-width: 1600px;
+   
+    width: 100%;
+    max-width: 100%;
     height: 430px;
     display: flex;
+    margin: 25px;
+    margin-left: 160px;
     /* flex-wrap: wrap; */
-    margin: auto;
+    /* justify-content: center; */
+    /* margin: auto; */
 }
 
 .container .card{
+
     font-family: 'Stick No Bills', sans-serif;
     background-color: #e6e1e1;
     width: 430px;
@@ -92,16 +96,17 @@ body{
 }
 .navClock {
     margin-top: -12px;
+    margin: -25px;
     border-radius: 7px;
     height: 25px;
     width: 432px;
-    margin-left: 220px;
+    margin-left: -690px;
     background-color: #f1f1f15e;
 }
 
 .reloj { 
+    
     margin-left: -150px;
-    display:none;
 }
 
 
