@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { getCountries, createActivity } from '../../actions/actions.js'
 import style from '../Activity/createActivity.module.css'
+import Clock from '../Clock/Clock.jsx'
 
 function validate (activity) {
     let errors = {};
@@ -112,7 +113,7 @@ function CreateActivity(){
     }
     
     return (
-        <div className={style.container}>
+        <div className={style.container} >
             <div className={style.card}>
                         <h1>Crea  la actividad turistica</h1>
                         <Link to="/home" ><button className={style.button}>VOLVER A HOME</button></Link>
@@ -191,6 +192,11 @@ function CreateActivity(){
                     {errors.difficulty && (<p>{errors.difficulty}</p>)}
                     {errors.duration && (<p >{errors.duration}</p>)}
                     {errors.season && (<p>{errors.season}</p>)}
+            </div>
+            <div className={style.navClock}>
+                <nav className={style.reloj} >
+                    <Clock />
+                </nav>
             </div>
         </div>
     )

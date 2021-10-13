@@ -103,7 +103,7 @@ export function createActivity(activity){
 export function addFavorites(favorite){
     return async function(){
         try {
-            let json = await axios.post('http://localhost:3001/activity',favorite)
+            let json = await axios.post('http://localhost:3001/favorites',favorite)
             return json
         } catch (error) {
             console.log("addFavorite Error")

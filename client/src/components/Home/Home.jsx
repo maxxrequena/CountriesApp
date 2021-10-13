@@ -13,7 +13,7 @@ import SetContinent from '../Filters/setContinent.jsx'
 import SetOrderCountry from '../Filters/setOrderCountry'
 import SetArea from '../Filters/setArea.jsx'
 import SetActivity from '../Filters/setActivity.jsx'
-
+import Clock from '../Clock/Clock'
 
 
 
@@ -21,10 +21,6 @@ function Home () {
 
   const dispatch = useDispatch();
   const allCountries = useSelector(state => state.allCountry)
-
-  const [favorites, setFavorites] = useState({
-    idCountry: []
-  })
    
   const [currentPage, setCurrentPage] = useState(1);
   const countriesPerPage = 9;
@@ -45,25 +41,16 @@ function Home () {
     dispatch(getAllActivities());
   },[dispatch])
 
-  function handleSelect(e) {
-    setFavorites({
-      ...allCountries,
-      idCountry: [...allCountries.idCountry, e.target.value]
-    })
-  }
 
-  function handleSubmit(e){
-    e.preventDefault();
-    dispatch(addFavorites(favorites))
-    setFavorites({
-      idCountry : []
-    })
-  }
+
   //BUTON > SELECCIONAR ID, HANDLE ID A FAV
 
   return(
       <div className={style.img}>
         <div className={style.container}>
+          <nav className={style.navClock}>
+            <Clock />
+          </nav>
           <nav className={style.nav}>
             <Link to="/home"><button className={style.button}> Home </button> </Link>
             <Link to='/activity'><button className={style.button}  > Activity Create</button> </Link>

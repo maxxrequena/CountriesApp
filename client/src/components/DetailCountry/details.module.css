@@ -8,12 +8,12 @@ body{
     
 }
 .container{
-    width: 100%;
-    max-width: 1200px;
+
+    width: 600%;
+    max-width: 1600px;
     height: 430px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    /* flex-wrap: wrap; */
     margin: auto;
 }
 
@@ -28,6 +28,7 @@ body{
     margin: 20px;
     text-align: center;
     transition: all 0.25s;
+    
 }
 
 .container .card img{
@@ -88,6 +89,19 @@ body{
 .button:hover {
     box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #000000;
     border: 3px solid #e0d8d8;
+}
+.navClock {
+    margin-top: -12px;
+    border-radius: 7px;
+    height: 25px;
+    width: 432px;
+    margin-left: 220px;
+    background-color: #f1f1f15e;
+}
+
+.reloj { 
+    margin-left: -150px;
+    display:none;
 }
 
 

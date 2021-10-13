@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    color: white;
+   
+}
+
+.date{
+    margin-top: -14px;
+    margin-left: -300px;
+}
+
+.reloj { 
+    margin-top: 2px;
+    margin-left: 420px;
+    width: 150px; 
+}
+

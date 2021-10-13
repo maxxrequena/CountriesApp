@@ -9,16 +9,29 @@ const country = {
   name: 'Argentina',
 };
 
-describe('Country routes', () => {
+// describe('Country routes', () => {
+//   before(() => conn.authenticate()
+//   .catch((err) => {
+//     console.error('Unable to connect to the database:', err);
+//   }));
+//   beforeEach(() => Country.sync({ force: true })
+//     .then(() => Country.create(country)));
+//   describe('GET /countries', () => {
+//     it('should get 200', () =>
+//       agent.get('/countries').expect(200)
+//     );
+//   });
+// });
+
+describe('Rutas Activities', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
   }));
-  beforeEach(() => Country.sync({ force: true })
-    .then(() => Country.create(pokemon)));
-  describe('GET /countries', () => {
+  describe('GET /activity', () => {
     it('should get 200', () =>
-      agent.get('/countries').expect(200)
+      agent.get('/activity').expect(200)
     );
   });
+
 });

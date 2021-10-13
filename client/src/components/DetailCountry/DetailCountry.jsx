@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail, getCountries } from '../../actions/actions.js'
 import style from '../DetailCountry/details.module.css'
+import Clock from '../Clock/Clock.jsx'
 
 function DetailCountry (){
 
@@ -21,6 +22,7 @@ function DetailCountry (){
     return (
 
         <div className={style.container}>
+            
             <div className={style.card}>
                 <img src={detail.flag} alt=" "/>
                 <h1>{detail.name}</h1>
@@ -44,6 +46,11 @@ function DetailCountry (){
                     }) :
                     <p> The country does not contain activity</p>
                 }    
+            </div>
+            <div className={style.navClock}>
+                <nav className={style.reloj} >
+                    <Clock />
+                </nav>
             </div>
         </div>
     )
