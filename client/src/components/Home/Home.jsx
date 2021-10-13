@@ -5,7 +5,7 @@ import Card from '../Card/Card.jsx'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCountries, addFavorites, getAllActivities} from '../../actions/actions.js'
+import { getCountries, getAllActivities} from '../../actions/actions.js'
 import Pagination from '../Pagination/Pagination.jsx'
 import gif from '../Home/globeGid.gif'
 import Search from '../Search/Search.jsx'
@@ -40,10 +40,6 @@ function Home () {
     dispatch(getCountries());
     dispatch(getAllActivities());
   },[dispatch])
-
-
-
-  //BUTON > SELECCIONAR ID, HANDLE ID A FAV
 
   return(
       <div className={style.img}>

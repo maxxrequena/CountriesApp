@@ -7,7 +7,7 @@ import {
     GET_DETAIL,
     GET_ALL_ACTIVITIES,
     CREATE_ACTIVITY,
-    ACTIVITY_FILTER
+    ACTIVITY_FILTER,
 } from '../actions/actions.js'
 
 const initialState = {

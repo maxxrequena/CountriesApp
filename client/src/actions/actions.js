@@ -9,6 +9,7 @@ export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES"
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY"
 export const ACTIVITY_FILTER = "ACTIVITY_FILTER"
 
+
 export function getCountries(){
     return async function(dispatch){
         try {
@@ -100,6 +101,27 @@ export function createActivity(activity){
     }
 }
 
+export function activityFilter(payload){
+    return function(dispatch){
+        return dispatch({
+        type: ACTIVITY_FILTER,
+        payload
+    })}
+}
+
+export function deleteActivity(idA){
+    
+    return async function(){
+        try {
+            const json = await axios.delete(`http://localhost:3001/activity/${idA}`)
+            return json;
+        } catch (error) {
+            console.log("deleteActivity", error)
+        }
+    }
+  
+}
+
 export function addFavorites(favorite){
     return async function(){
         try {
@@ -111,11 +133,3 @@ export function addFavorites(favorite){
     }
 }
 
-export function activityFilter(payload){
-    return function(dispatch){
-        return dispatch({
-        type: ACTIVITY_FILTER,
-        payload
-    })
-}
-}

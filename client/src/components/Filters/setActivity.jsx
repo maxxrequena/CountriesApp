@@ -7,7 +7,6 @@ function SetActivity(){
 
     const dispatch = useDispatch();
     const allActivities = useSelector(state => state.allActivities)
-    console.log("allActivities", allActivities)
     
     function handleFilterActivity(e){
         dispatch(activityFilter(e.target.value))

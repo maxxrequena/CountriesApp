@@ -149,6 +149,13 @@ select {
 .button:hover {
     box-shadow: 0 0 10px 0 #e0d8d8 inset, 0 0 10px 2px  #000000;
 }
+
+button:disabled,
+button[disabled]{
+    opacity: 0.4;
+    color: #000000;
+}
+
 .navClock {
     margin-top: -580px;
     border-radius: 7px;

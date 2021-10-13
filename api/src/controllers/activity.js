@@ -1,5 +1,5 @@
 const { Activity, Country} = require('../db');
-// const { v4: uuidv4 } = require('uuid');
+const { Op } = require('sequelize')
 
 async function activityCreate(req, res, next){
 
@@ -39,7 +39,30 @@ async function getAllActivities (req, res, next){
     }
 }
 
+async function deleteActivity (req, res, next){
+    try {
+        
+        const {idA} = req.params
+        const idSearch = 
+
+        await Activity.destroy({
+            where: {
+                id: {
+                  [Op.eq]: idA,
+                },
+            }
+        })
+
+        res.send(`Activity ${idA} delete`)
+        
+    } catch (error) {
+
+        console.log("activityCreateError", error)
+    }
+}
+
 module.exports = {
     activityCreate,
-    getAllActivities
+    getAllActivities,
+    deleteActivity
 }

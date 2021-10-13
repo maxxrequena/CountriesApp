@@ -3,20 +3,25 @@ import React from "react";
 import {Link, useParams} from 'react-router-dom'
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail, getCountries } from '../../actions/actions.js'
+import { getDetail, deleteActivity } from '../../actions/actions.js'
 import style from '../DetailCountry/details.module.css'
 import Clock from '../Clock/Clock.jsx'
 
 function DetailCountry (){
 
-    const {id} = useParams()
+    const { id } = useParams()
     
     const dispatch = useDispatch(); 
     const detail = useSelector(state => state.detailCountry)
-    // console.log("detail ", detail)
+
+    function handleDelete(activityId){
+        alert("Actividad Eliminada!")
+        dispatch(deleteActivity(activityId))
+        dispatch(getDetail(id));
+    }
+
     useEffect(() => {
-        dispatch(getCountries())
-        dispatch(getDetail(id))
+        dispatch(getDetail(id));
     },[dispatch])
 
     return (
@@ -35,18 +40,22 @@ function DetailCountry (){
             </div>
             <div className={style.card}>
                 <h1>Activities:</h1>
-                {detail?.activities?.length ?
+                {
+                    detail.activities?.length ?
                     detail?.activities.map(a => {
                         return (<div  className={style.boxAct} key={a.id} >
                             <p>Name: {a.name}</p>
                             <p>Difficulty: {a.difficulty} (easy - hard)</p>
                             <p>Duration: {a.duration} Hs.</p>
                             <p>Season: {a.season}</p>
+                            <button className={style.button} onClick={() => handleDelete(a.id)} > X </button> 
                         </div>)
                     }) :
                     <p> The country does not contain activity</p>
-                }    
+                    
+                }   
             </div>
+            <div></div>
             <div className={style.navClock}>
                 <nav className={style.reloj} >
                     <Clock />
