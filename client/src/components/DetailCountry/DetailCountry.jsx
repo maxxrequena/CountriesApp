@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import React from "react";
 import {Link, useParams} from 'react-router-dom'
 import { useEffect } from "react";
@@ -15,9 +16,11 @@ function DetailCountry (){
     const detail = useSelector(state => state.detailCountry)
 
     function handleDelete(activityId){
-        alert("Actividad Eliminada!")
+        console.log("id actid", id , activityId)
         dispatch(deleteActivity(activityId))
-        dispatch(getDetail(id));
+        dispatch(getDetail(id))
+        dispatch(getDetail(id))
+        alert("Actividad Eliminada!")
     }
 
     useEffect(() => {
@@ -25,7 +28,6 @@ function DetailCountry (){
     },[dispatch])
 
     return (
-
         <div className={style.container}>
             
             <div className={style.card}>
@@ -48,11 +50,10 @@ function DetailCountry (){
                             <p>Difficulty: {a.difficulty} (easy - hard)</p>
                             <p>Duration: {a.duration} Hs.</p>
                             <p>Season: {a.season}</p>
-                            <button className={style.button} onClick={() => handleDelete(a.id)} > X </button> 
+                            <button className={style.button} onClick={() => handleDelete(a.id)} >Delete Activity</button> 
                         </div>)
                     }) :
-                    <p> The country does not contain activity</p>
-                    
+                    <p> The country does not contain activity</p>    
                 }   
             </div>
             <div></div>

@@ -65,6 +65,7 @@ export function setArea (area) {
 export function getDetail (id) {
     return async function(dispatch){
         try {
+            console.log("paso por act", id)
             var json = await axios(`http://localhost:3001/countries/${id}`)
             return dispatch ({
                 type: 'GET_DETAIL',
@@ -110,9 +111,9 @@ export function activityFilter(payload){
 }
 
 export function deleteActivity(idA){
-    
     return async function(){
         try {
+            console.log("id action", idA)
             const json = await axios.delete(`http://localhost:3001/activity/${idA}`)
             return json;
         } catch (error) {

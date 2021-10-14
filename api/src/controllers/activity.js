@@ -41,10 +41,9 @@ async function getAllActivities (req, res, next){
 
 async function deleteActivity (req, res, next){
     try {
-        
-        const {idA} = req.params
-        const idSearch = 
 
+        const {idA} = req.params
+        console.log("id back", idA)
         await Activity.destroy({
             where: {
                 id: {

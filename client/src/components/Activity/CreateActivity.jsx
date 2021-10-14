@@ -47,9 +47,7 @@ function CreateActivity() {
       ...activity,
       idCountry: [...activity.idCountry, country]
     };
-
     validate(newActivity);
-
     setActivity(newActivity);
   }
 
@@ -119,9 +117,6 @@ function CreateActivity() {
     <div className={style.container}>
       <div className={style.card}>
         <h1>Crea la actividad turistica</h1>
-        <Link to="/home">
-          <button className={style.button}>VOLVER A HOME</button>
-        </Link>
         <form
           onSubmit={(e) => {
             handleSubmit(e);
@@ -137,7 +132,7 @@ function CreateActivity() {
                   ))}
             </select>
           </div>
-          {errors.idCountry && <p>{errors.idCountry}</p>}
+            {errors.idCountry && <p>{errors.idCountry}</p>}
           <div className={style.select}>
             <select value={activity.difficulty} name="difficulty" onChange={handleDifficulty}>
               <option value="">Difficulty...</option>
@@ -178,8 +173,7 @@ function CreateActivity() {
             </select>
           </div>
           {errors.season && <p>{errors.season}</p>}
-
-          <div>
+            <div>
             <input
               className={style.input}
               type="text"
@@ -189,28 +183,33 @@ function CreateActivity() {
               onChange={handleName}
             ></input>
           </div>
-          {errors.name && <p>{errors.name}</p>}
-
-          {errors.length ? (
+            {errors.name && <p>{errors.name}</p>}
+            
+            {errors.length ? (
             <button disabled className={style.button} type="submit">
               Crear Actividad
             </button>
           ) : (
-            <button className={style.button} type="submit">
+            <button className={style.button2} type="submit">
               Crear Actividad
             </button>
           )}
         </form>
-        {activity.idCountry.map((e, i) => (
-          <div key={i}>
-            <p>{e}</p>
-            <button onClick={() => handleDelete(e)}>X</button>
-          </div>
-        ))}
+        <div className={style.delete}>
+            {activity.idCountry.map((e, i) => (
+            <div className={style.deleteX} key={i}>
+                <p>{e}</p>
+                <button onClick={() => handleDelete(e)}>X</button>
+            </div>
+            ))}
+        </div>
       </div>
       <div className={style.navClock}>
         <nav className={style.reloj}>
-          <Clock />
+            <Clock />
+        </nav>
+        <nav className={style.nav}>
+        <Link to="/home"><button className={style.button}>VOLVER A HOME</button></Link>
         </nav>
       </div>
     </div>
