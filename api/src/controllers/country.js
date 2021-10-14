@@ -22,9 +22,10 @@ async function getCountriesApi (){
                     name: e.name.common,
                     flag: e.flags[0] && e.flags[1] || e.flag ,
                     continent: e.region,
-                    capital: e.capital && e.capital[0] || "Capital Default",
+                    capital: e.capital && e.capital[0] || "Capital Default", 
                     subregion: e.subregion || "Region Default",
                     area: e.area || "Area Default",
+                    population: e.population || 0
                 }
             })
             const countriesDb = await Country.bulkCreate(getAllApi);
@@ -40,11 +41,10 @@ async function getCountriesApi (){
 async function getCountries(req, res, next){
 
     await getCountriesApi();
-    
-    // console.log("name de query", name)
+
     try {
         
-        let { name, order, area } = req.query;
+        let { name, order, area, population } = req.query;
         
         if(name){
             
@@ -58,6 +58,7 @@ async function getCountries(req, res, next){
                     "continent", 
                     "area",
                     "subregion",
+                    "population"
                 ],
                 include: Activity,
                 where:{
@@ -80,6 +81,7 @@ async function getCountries(req, res, next){
                     "continent", 
                     "area",
                     "subregion",
+                    "population"
                 ],
                 include: Activity,
             })
@@ -114,6 +116,7 @@ async function getCountries(req, res, next){
                     "continent", 
                     "area",
                     "subregion",
+                    "population"
                 ],
                 include: Activity,
             })
@@ -134,6 +137,42 @@ async function getCountries(req, res, next){
                 }
             }
             return res.send(country.sort(sortArea));
+        }
+        if(population){
+            
+            const country = await Country.findAll({
+
+                attributes: [
+                    "id", 
+                    "name", 
+                    "flag",
+                    "capital", 
+                    "continent", 
+                    "area",
+                    "subregion",
+                    "population"
+                ],
+                include: Activity,
+            })
+            let sortPopulation;
+            if(population === "Def" || !population || population === "") return res.send(country)
+            
+            if(population === "Asc" || !population || population ===""){
+                sortPopulation = function(a,b) {
+                    if(a.population > b.population) return 1;
+                    if (a.population < b.population)return -1;
+                    return 0;    
+                }
+            } else {
+                sortPopulation = function(a,b) {
+                    if(a.population > b.population) return -1;
+                    if (a.population < b.population)return 1;
+                    return 0;    
+                }
+            }
+            return res.send(country.sort(sortPopulation));
+
+
         } else {
             const countries = await Country.findAll({
                 attributes: [
@@ -144,6 +183,7 @@ async function getCountries(req, res, next){
                     "continent", 
                     "area",
                     "subregion",
+                    "population"
                 ],
                 //REVISAR EL INCLUDES
                 include: Activity

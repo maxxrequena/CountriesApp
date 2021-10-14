@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCountries, getAllActivities} from '../../actions/actions.js'
 import Pagination from '../Pagination/Pagination.jsx'
-import gif from '../Home/globeGid.gif'
+import gif from '../Home/mGIF.gif'
 import Search from '../Search/Search.jsx'
 import SetContinent from '../Filters/setContinent.jsx'
 import SetOrderCountry from '../Filters/setOrderCountry'
@@ -66,14 +66,14 @@ function Home () {
           />
           <div className={style.cards}>
             {
-              currentCountries ?  
+              currentCountries.length ?   
               currentCountries.map( (c) => {
                   return (
                     <div key={c.id}>
                         <Card flag={c.flag} name={c.name} continent={c.continent} id={c.id}/>
                     </div>
                   )
-              }) :(<img src={gif} alt=" "></img>) 
+              }) : (<div  className={style.imagen}><img src={gif} alt=" "></img></div>)
             }
           </div> 
         </div>

@@ -16,9 +16,7 @@ function DetailCountry (){
     const detail = useSelector(state => state.detailCountry)
 
     function handleDelete(activityId){
-        console.log("id actid", id , activityId)
         dispatch(deleteActivity(activityId))
-        dispatch(getDetail(id))
         dispatch(getDetail(id))
         alert("Actividad Eliminada!")
     }
