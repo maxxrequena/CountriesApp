@@ -226,58 +226,6 @@ async function getCountryById (req, res, next){
     }
 }
 
-// async function filtersCountries(req, res, next){
-
-//     const { order, area } = req.query;
-
-//     try {
-//         if(order){
-//             let countOrder = await Country.findAll({
-//                 attributes: [
-//                     "id", 
-//                     "name", 
-//                     "flag",
-//                     "capital", 
-//                     "continent", 
-//                     "area",
-//                     "subregion",
-//                 ],
-//                 include: Activity //pensar en traer el id correspondiente
-//             })
-//             if(order === "asc" || !order || order === ""){
-//                 countOrder = countOrder.sort((a, b) => {
-//                     return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-//                 })
-//             }else {
-//                 countOrder = countOrder.sort((a, b) => {
-//                     return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
-//                 })
-//             }
-//             return res.send(countOrder);
-//         }
-//         if(area){
-
-//             const countries = await Country.findAll({
-//                 attributes: [
-//                     "id", 
-//                     "name", 
-//                     "flag",
-//                     "capital", 
-//                     "region", 
-//                     "area",
-//                     "subregion",
-//                 ],
-//                 include: Activity
-//             })
-            
-//         }
-//     } catch (error) {
-//         next(error);
-//     }
-// }
-
-
-
 module.exports = {
     getCountries,
     getCountryById,

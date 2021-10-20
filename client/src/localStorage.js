@@ -16,19 +16,19 @@ export const loadState = () => {
     }
 }
 
-export const saveState = (evento) => {
+export const saveState = (country) => {
     try {
-        const serialState = JSON.stringify(evento);
-        localStorage.setItem(((evento.id).toString()), serialState)
+        const serialState = JSON.stringify(country);
+        localStorage.setItem(((country.id).toString()), serialState)
     } catch (error) {
         console.log(error)
     }
 }
 
-export const removeState = (evento) => {
+export const removeState = (country) => {
     try {
-        const serialState = JSON.stringify(evento);
-        localStorage.removeItem(((evento.id).toString()), serialState)
+        const serialState = JSON.stringify(country);
+        localStorage.removeItem(((country.id).toString()), serialState)
     } catch (error) {
         console.log(error)
     }

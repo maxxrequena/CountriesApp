@@ -42,42 +42,45 @@ function Home () {
   },[dispatch])
 
   return(
+
       <div className={style.img}>
         <div className={style.container}>
           <nav className={style.navClock}>
-            <Clock />
+              <Clock />
           </nav>
           <nav className={style.nav}>
             <Link to="/home"><button className={style.button}> Home </button> </Link>
             <Link to='/activity'><button className={style.button}  > Activity Create</button> </Link>
             <Link to=''><button  onClick={(e)=>handleReset(e)} className={style.button}> Favorites</button> </Link>  
             <Search/>
-            </nav>
-            <nav className={style.nav2}>
+          </nav>
+          <nav className={style.nav2}>
             <SetContinent/>
             <SetOrderCountry/>
             <SetArea/> 
             <SetActivity/>
-            </nav>
+          </nav>
           <Pagination 
             countriesPerPage ={countriesPerPage}
             allCountries={allCountries.length}
             paged={paged}
           />
-          <div className={style.cards}>
-            {
-              currentCountries.length ?   
-              currentCountries.map( (c) => {
-                  return (
-                    <div key={c.id}>
-                        <Card flag={c.flag} name={c.name} continent={c.continent} id={c.id}/>
-                    </div>
-                  )
-              }) : (<div  className={style.imagen}><img src={gif} alt=" "></img></div>)
-            }
-          </div> 
-        </div>
-      </div>       
+        <div className={style.cards}>
+          {
+            currentCountries.length ?   
+            currentCountries.map( (c) => {
+                return (
+                  <div key={c.id}>
+                    <Card flag={c.flag} name={c.name} continent={c.continent} id={c.id}/>
+                    {/* pasarle un country={c} que tendria guardado todo  */}
+                  </div>
+                )
+            }) : (<div  className={style.imagen}><img src={gif} alt=" "></img></div>)
+          }
+        </div> 
+      </div>
+    </div>       
+
   )
     
 }
