@@ -45,26 +45,26 @@
 
 #### Load:
 <p align="left">
-  <img height="600" src="/Users/gudy/CountriesPI/img/load.png" />
+  <img height="600" src="img/load.png" />
 </p>
 
 #### Pagina 1:
 <p align="left">
-  <img height="600" src="/Users/gudy/CountriesPI/img/pag1.png" />
+  <img height="600" src="img/pag1.png" />
 </p>
 
 #### Pag(2) order A-Z:
 <p align="left">
-  <img height="600" src="/Users/gudy/CountriesPI/img/pagCountry.png" />
+  <img height="600" src="img/pagCountry.png" />
 </p>
 
 #### Create Activity:
 <p align="left">
-  <img height="600" src="/Users/gudy/CountriesPI/img/addAct.png" />
+  <img height="600" src="img/addAct.png" />
 </p>
 
 #### Country Detail:
 <p align="left">
-  <img height="600" src="/Users/gudy/CountriesPI/img/detCountry.png" />
+  <img height="600" src="img/detCountry.png" />
 </p>
 
